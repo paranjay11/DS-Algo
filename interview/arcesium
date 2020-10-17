@@ -1,0 +1,66 @@
+arcesium
+
+
+1st interview:
+
+1. what is an interface and abstraction
+2. what is static block and java is pass by value or pass by reference
+3. what is synchronized objects in java
+4. what do you know about microservices
+5. design a service where I would be able to get a number of counts in the lasst 300 second on a url
+	where each click comes with a timestamp
+6. algo : mth node from the last node of a linked list
+7. algo : left view of the BST
+8. what is a HASHTABLE and how does it work
+
+9. have you worked on a db. What is an index
+
+10. There is a grocery store which has an array of an object that containes {893489368,'name'} a mobile number and a name 
+	of the customer. It is a very old program where if a customer comes to the store , then to retrieve that customer's info
+	(if the customer is already present in the records) the program searched the info in linear search manner. Since it is a very old shop there are many numbers in the array of objects hence an average time goes to 4-5 seconds. Improve this search time 
+	with the leaast amount of modification. 
+
+	I said use Trie. - changing the whole data struction - very expensive
+	so any change in data structure is out of the question.
+
+	I said use sort()  to sort the objects in terms of numbers and do binary search - implementing a new algo of sort is expensive -
+	expensivebut less than previous one.
+
+	I said use insertion sort instead of previous sort - previous answer is similar
+
+	He gave a hint of why dont we think in terms of people who come frequently to the store and those who dont that regularly. I suggested maintaining a cache or a buffer or a queue LRU kind of a thing for the customers visited in the last week or something. So that whenever a regular customer comes a linear search will be searched in the queue if a match is there then the search time goes low and if there is a miss then fetch it from the original array of objects. Overall avg time will be less.
+
+11. what is immutable classes in java
+
+
+
+
+
+2nd Interview:
+
+1. what is map?(in terms of C++)
+2. how do we implement it?
+3. There was a question on submition and retrival of some values.
+	given:    date      value1    value2
+			20092012      a         d
+			20092012      b         e
+			21092012      c         f
+
+Discussion of retriaval and best way to arrange them in terms of optimization
+
+
+
+
+
+3rd Interview:
+
+1. databases knowledge??
+2. Implement codeshare or google docs with simultaneous writes from many users.
+   ->how will you design it ad how will you store the users , documents and others things
+   ->what apis will you expose
+   ->how the permission will be handled by all the users.
+   Questions she asked:
+   a. How the owenrship will be decided
+   b. How will I make it synchronied
+   c. How to ensure that no body has to wait for other user to leave the document and then have access to it.
+   
