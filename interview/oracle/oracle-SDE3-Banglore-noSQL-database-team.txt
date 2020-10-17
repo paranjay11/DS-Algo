@@ -1,0 +1,101 @@
+oracle - SDE3 - Banglore - noSQL database team
+
+Interview was around core concepts. Not related to a particular language.
+
+// multithreading 
+1. What is a deadlock
+2. how to overcome it
+3. How do you debug a server where it is not possible to get logs of the whole software and the issue from the client is 
+	the service is not responding or it is hung.
+4. define race condition
+5. We have 2 threads . thread1 creates a database's table and thread2 populates that database table
+	How to synchronize them such that create thread runs before write thread
+//////////////////////////////// my answer///////////////////////
+class synchronized object{
+	void write();
+	void create();
+}
+
+
+Object object;
+thread thread1= new runnable(
+	void run(){
+			// create the table
+			object.create();
+
+	}
+);
+
+Thread thread2= new runnable(
+	void run(){
+		// populate the table
+		object.write();
+	}
+);
+
+thread1.start();
+sleep(1000);
+thread2.start();
+
+thread1.join();
+thread2.join();
+/////////////////////////////////////////////////
+6. what if the create thread take more time than the sleep provicded (which according to me was enough time for creation and not let the write thread wait .... he said it may work sometime but when on server there are many issues so we cant rely on this much sleep) . Will this solution work? If not, How to make it robust? 
+I answered monitors in JAVA
+
+
+
+7. define SOLID practices
+////////////////////////////////////my answer///////////////////////
+S- single resp
+
+
+class CAR{
+	Engine engine;
+	Typres tyre;
+
+}
+
+
+CAR car= new(v8,ceat);
+
+interface Tyres - ceat , mischellin
+
+interface engine; - v8,v12
+////////////////////////////////////////////////////////////////////
+
+8. How will you design Garbage collector in c++
+///////////////////////////////my answer//////////////////////////////
+q1,q2,q3
+
+1,1,2
+
+
+a. list of all the objects that are created
+b. A count for each object to tell if tis reference is saved by some othere variable -> (this i explained by  traversing through graph and maintain { parent , child } array which gives me a count for evertime i reach a parent from a child.)
+c. after a certain interval , a run inside the queue happens that cehcks for the flag 
+d. based on the flag we delete the allocated objects and the rest are kept for next run
+
+//////////////////////////////////////////////////////////////////////
+9. How will I maintain the count of objects that reference a particular object, so that whenever there is a refenece removed that earlier was refernceing an object the count for that object has reduced. This dynamic refernce count - How will i maintain it
+
+10. explain my assignment skewed tree to balanced tree
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
