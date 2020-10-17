@@ -1,0 +1,107 @@
+struct Node{
+	int val; - 4bytes
+	bool isTrue; - 1byte
+};
+
+
+
+sizeof(Node) -> 8byte
+
+
+func1
+
+
+
+
+
+/////////////////////
+1. inputs : shape1, shape2 (list of struct (x,y))
+2. in terms of coordinate geometry - we need to have equations which we equalize and get the roots
+3. in program : if I have a list of points (vertices) for each shape then i could do a search of intersecting node (for intersection or touch)
+4. 
+
+
+-----------------------
+						|
+						|
+
+
+// xyz.cpp
+
+
+class1{
+ funA
+}
+
+classB : public claas1{
+ funA
+}
+
+classC : public class1{
+ funA
+}
+
+
+
+
+
+
+
+struct coords{
+	int x;
+	int  y;
+};
+
+ifInside1(coords A,coord B)
+
+2 rectangles input:  
+
+ifInside()  
+
+
+
+1 . for each side I of a square i check if any coord of another sqoare is lying between the coord A,B
+				
+
+
+
+
+
+
+
+func2 ()
+extern func1()
+main()
+
+
+
+// func1.cpp
+func1(){
+	
+}
+
+
+// func1.h
+func1();
+
+
+
+#incldue <func1.h>
+
+
+// A.cpp
+main1(){
+	
+	func1
+}
+
+
+
+#include<func1.h>
+
+
+// B.cpp
+main2(){
+	func1
+}
+

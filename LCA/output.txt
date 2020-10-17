@@ -1,0 +1,10 @@
+lcs reached 20
+reached 0 :20
+reached 0 :30
+reached 0 :60
+reached 0 :40
+reached 0 :70
+reached 0 :10
+reached 0 :100
+ANS = -1
+is Valid

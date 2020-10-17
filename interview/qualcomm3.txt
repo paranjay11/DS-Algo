@@ -1,0 +1,51 @@
+
+// this prints a pointon the screen
+ draw_point(int x, int y){
+
+ }
+
+ 				2		2	1	
+ // this makes use of draw_point and draws a circle		
+ draw_circle(int x,int y,int r){
+ 		int X;
+ 		int Y;
+
+ 		2,3
+ 		2,1	
+ 		// (X-x)^2 + (Y-y)^2 = r^2
+
+ 		int angle = 0;
+
+ 		while(angle<90){
+
+	 		X = r*cos(angle); 
+	 		Y = r*sin(angle);
+
+	 		draw_point(X+x,Y+y);
+	 		draw_point(X+x,y-Y);
+	 		draw_point(x-X,Y+y);
+	 		draw_point(x-X,y-Y);
+	 		angle+=1;
+ 		}
+ }
+
+
+
+ //----------------------------------------
+
+ // check if a number is a palindrome
+
+ decimalNum = 2334 2332 -2332
+
+if(decimalNum < 0) return false;
+
+int temp = decimalNum;
+int sum=0;
+ while(decimalNUm>0){
+ 	int val=decimalNum%10;
+ 	sum = sum*10+val;
+ 	decimalNum=decimalNUm/10;
+}
+
+if(sum == temp) return true;
+else return false;

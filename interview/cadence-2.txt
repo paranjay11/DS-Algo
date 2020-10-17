@@ -1,0 +1,126 @@
+
+Question: Introduction of yourself.
+
+
+HDL compiler for simulator : profile in cadence,Noida
+/////////////////////////////////////////////
+Question: can we assign 4characters to an integer
+
+1st attempt: use bit manuplation but asked for another way of doing that
+
+int x;
+
+integer pointer ot chafracter pointer
+
+
+struct myCHar{
+	char a[4];
+};
+
+
+myChar *p=new myChar();
+p->a[0]='a';
+
+
+
+
+
+
+char arr[4]={'a','b','c','d');
+
+int *k=(int*)arr;
+
+int x=0;
+
+char *temp=(char*)&x;
+char p='a';
+
+
+
+
+int main(){
+	int a;
+	int b;
+
+}
+
+///////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+Question : cycle detection in a linked list and removal of cycle (2 pointer apporach)
+Complexity of this approach : exact complexity needed because there may be a case when faster_node will jump above the slower Node
+        4  
+		  7
+1 2 3 4 5 6 
+
+Question : using only one node pointer. using map
+pair<1,vector<Info>>
+info{node(1), visited(1/0)}
+
+struct info{
+	Node *node;
+	bool flag;
+};
+
+bool isPresent(Node *node){
+	if(find(m.begin(),m.end(),node->val)){
+		
+		for(int i=0;<m[node->val].size();i++){
+			if(m[node->val][i].node==node){
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+
+
+map<int,bool> m;
+Node *temp=head;
+Node *prev=temp;
+
+while(temp && !find(m.begin,m.end(),temp)){ // if not found in map add to the map
+	m[temp]=true; // add to the map
+	prev=temp;// previous 
+	temp=temp->next;
+}
+
+
+// if not found then prev node is the end of the list
+prev->next=NULL;
+
+///////////////////////////////////////////////////////////////////////////
+Question:
+
+what is a shared objects ?
+Which datastructure have you used in your code while working. example?
+How do you debug your code? What type pf errors have you encountered while debugging? Any tools you use to debug?
+Any big issue you faced in your code and solved it? How did you do that?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

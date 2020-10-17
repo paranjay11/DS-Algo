@@ -1,0 +1,139 @@
+Question : 1-1000 divisible by 3 or by 5 not by 15(On complexity )
+
+int fun(){
+	int count=0;
+	int three=3;
+	int five=5;
+	int i=1;
+	int k;
+	while(k<1000){ // only 3multiple
+		k=three*i;
+		if(k%15!=0){
+			count++;
+		}
+		i++;
+	}
+	i=0;
+	while(k<1000){ // only multiple of 5 but not 3 and 15
+		k=five*i;
+		if(k%15!=0){
+			count++;
+		}
+		i++;
+	}
+
+	return count;
+
+
+
+
+
+}
+
+Question: solve it in O(1)
+1000/3+1000/5-1000/15
+
+// 
+
+int main{
+	
+}
+
+
+
+
+
+int *p // 
+
+
+Question: What is the size of this struct?
+struct mem{
+	int i; //4
+	char b; // 4 -> why 4byte to char?
+	int c;//4
+};
+
+
+Question: find the values which are in A but not in B
+int A[100] ={2,5,-1,0}
+int B[100] = { 6,-1,3,2 } = 5 , 0
+
+
+Question: function to insert a given integer in a sorted integer linked list
+
+
+Node* fun(Node *head,int val){
+	
+	Node* nu=newNode(val);
+
+	if(head==null){
+		return nu;
+	}
+
+	Node *temp=head;
+	Node *prev=temp;
+	while(temp && temp->val<val){
+		prev=temp;
+		temp=temp->next;
+	}
+
+	if(temp==NULL){
+		prev->next=nu;
+	}
+	else{
+		nu->next=temp;
+		prev->next=nu;
+	}
+
+
+	return head;
+
+}
+
+
+Question: What is AVL tree? explain its working and its usage
+
+Question: what is bi-partriate graph
+She explained it and then asked me how will i tell if a graph is bipartrae or not
+shw gave me a hint and then asked me to tell her the terminating condition.
+
+bipartate-graph
+1->2
+1->4
+3->4
+3->6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

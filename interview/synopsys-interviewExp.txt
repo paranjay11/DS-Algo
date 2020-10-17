@@ -1,0 +1,79 @@
+
+// how do you write a node for a linked list
+struct Node{
+	int val;
+	Node *next;
+};
+
+// how would you get to know if two linked list merge . complexity
+unordered_map<*node,bool>
+
+
+// explain how did i implement reverse linked list
+listNode*  head=list;
+
+		p3
+    1 <-2 ->3 ->4
+    		p1
+    			pnext
+
+
+// reverse a linked list
+Node *reverse(Node *p){
+
+	if(!p) return NULL;
+
+	Node *p1=p;
+	Node *pnext=p;
+	Node *p3=NULL;
+
+	while(p1){
+		pnext=p->next;
+		p1->next=p3;
+		p3=p1;
+		p1=pnext;
+	}
+
+	return p3;
+}
+
+
+p=NULL;
+p=1->2->3->4->NULL
+
+
+
+
+
+
+// const member in a class . how would i initialize it? Can I initialize it or not
+// write a copy constructor and assignment operator of the class
+class A{
+	private:
+	int a;
+	int b;
+	public:
+
+	A(cosnt int _a,int _b):a(_a),b(_b){
+		a=_a;
+		b=_b;
+	}
+
+	A opertor =(const A &p)const {
+			
+	}
+
+	A(const A& p){ // copy constructor
+		a=p.a;
+		b=p.b;
+	}
+
+};
+
+// If I were to design a custom queue , what common APIs will i implement and using which stl container and why. Why not others.
+// An array containing a million numbers from 1-10 . How would i sort it (was expecting bucket sort)
+// BST search for the biggest number. How would i do it. (traverse the tree for rightmost element) complexity also
+// if a simple binary tree and i need to find a nmber in it. How would I do it. BFS or DFS
+
+
+
