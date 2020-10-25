@@ -1,3 +1,8 @@
+// 1 screening phone call: fundamentals of c++ and some tree algo problems
+// 1 assignment to be solved while being online and follwing that a discussion of the solved questions and some other algo questions
+   with chinese team and their manager
+// 1 round puzzle and behavioral queustions
+// 1 last round is below:
 
 // how do you write a node for a linked list
 struct Node{
@@ -71,9 +76,12 @@ class A{
 };
 
 // If I were to design a custom queue , what common APIs will i implement and using which stl container and why. Why not others.
-// An array containing a million numbers from 1-10 . How would i sort it (was expecting bucket sort)
+// An array containing a million numbers from 1-10 . How would i sort it (was expecting bucket sort, which i didnt know at that time)
 // BST search for the biggest number. How would i do it. (traverse the tree for rightmost element) complexity also
 // if a simple binary tree and i need to find a nmber in it. How would I do it. BFS or DFS
+
+
+
 
 
 

@@ -1,0 +1,109 @@
+// panel of two interviewers. approx 1hr
+1. types of polymorphism in c++, how do they work? Dicsussion of vptr, and an output question on it.
+2. which is of them is correct , const char*p,char *const p, char const *p? what will happen if we remove const, how will it be different fromt the correct one amonf them
+3. Graphics pipeline. how to you debug, and what debuggers do you use?
+4. Some output questions
+5. how the communnication between client and server works in a network? (socket programming)
+6. AVL tree and redblack tree and their working(no code). Where are they used. and why?
+
+
+7. // loop in a linked list
+
+struct Node{
+	int val;
+	Node *next;
+};
+
+bool isLoop(Node *head){
+	Node *temp=haed;
+
+	Node *secondTemp=head;
+
+	while(secondTemp){
+		secondTemp=secondTemp->next;
+		if(secondTemp==NULL) break;
+		temp=temp->next;
+		if(temp==secondTemp){
+			return true;
+		}
+	}
+	return false;
+
+}
+
+
+
+
+
+
+8. // print 1-100 without loop
+
+void fun(int val){
+	if(val==100) return;
+
+	cout<<val;
+	fun(val+1);
+}
+
+
+int main(){
+	fun(1);
+
+	return 0;
+}
+
+1234567
+
+
+
+
+
+
+
+9. //WAP to check if a float is a palindrome or not
+1.221 
+
+123.321
+
+
+1.221/10 = 1
+1.221%10=0
+
+
+
+bool isPalin(float val){
+	string str = to_String(val);
+
+	// removes '.' 1.221
+	for(int i=0;i<str.length();i++){
+		if(str[i]=='.') {
+			str.erase(str+i);
+			break;
+		}
+
+	}
+
+	// for condtion 1221.0
+	if(str[str.length()-1]=='0'){
+		str.erase(str.length()-1);
+	}
+
+	it len=str.length();
+	for(int i=0;i<len/2;i++){
+		if(str[i]!=str[len-i]) return false;
+	}
+
+	return true;
+
+}
+
+
+
+ 12344321
+
+
+
+
+
+
+

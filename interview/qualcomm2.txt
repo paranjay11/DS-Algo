@@ -1,3 +1,13 @@
+// first round was hiring manager
+// in depth graphics pipeline
+// some code of shaders and the useage of its variables
+// diff between VAO & VBO and their usage
+// code flow for texture drawing
+// LRU implementation and other variations in it
+
+// 2nd round:-
+
+// striucture padding
 struct Node{
 	int val; - 4bytes
 	bool isTrue; - 1byte
@@ -15,10 +25,10 @@ func1
 
 
 /////////////////////
-1. inputs : shape1, shape2 (list of struct (x,y))
+1. inputs : shape1, shape2 (list of struct (x,y))(coordinates)
 2. in terms of coordinate geometry - we need to have equations which we equalize and get the roots
 3. in program : if I have a list of points (vertices) for each shape then i could do a search of intersecting node (for intersection or touch)
-4. 
+4. I explained in some other way...and then showed it through paint.
 
 
 -----------------------
@@ -46,7 +56,7 @@ classC : public class1{
 
 
 
-
+// smoe question : idont remember completely
 struct coords{
 	int x;
 	int  y;
@@ -66,7 +76,7 @@ ifInside()
 
 
 
-
+// extern , static, usage
 
 
 func2 ()
@@ -85,7 +95,7 @@ func1(){
 func1();
 
 
-
+// some generic file inclusion techniques in a big project
 #incldue <func1.h>
 
 

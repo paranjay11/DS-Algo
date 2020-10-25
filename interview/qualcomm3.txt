@@ -1,3 +1,7 @@
+// 3rd round.... algo based
+// some question which were differnt form algo ones are written below:
+
+
 
 // this prints a pointon the screen
  draw_point(int x, int y){
@@ -49,3 +53,15 @@ int sum=0;
 
 if(sum == temp) return true;
 else return false;
+
+// some discussion of my work and debug techniques
+
+
+
+
+
+// afte that managerial round
+// it was a short ruond of 30 mins(max)
+// questions were realted to work ethics and my overall work exp
+// graphics pipeline related questions
+
