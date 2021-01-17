@@ -24,7 +24,7 @@ int func(int *weights,int *values,int len,int weight){
 			}
 		}
 	}
-
+	
 
 	// recursion part is converted to iterative code
 
