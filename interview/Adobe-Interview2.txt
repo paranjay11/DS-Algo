@@ -1,0 +1,106 @@
+Q: tell me a datastructure for below data and then calculate the value
+
+// [4, 5, [[6], 7, [8], [9], 9], 10] -> represent this ina  datastructure
+// 1 * (4 + 5 + 2 * (6 + 7 + 3 * (8 + 9) + 9) + 10) ->this should be the end result where each array has its own depth 
+// Elelments [4,5,..... 10] in the outer most array has the depth 1
+// Elelments [[6], 7, [8], [9], 9] has the depth as 2
+// Element [8], [9] have the depth as 3
+
+
+struct basicElement{
+  basicElement *arr;
+  int len;
+  int value;
+};
+/*/////////////////////////////////////////// explanation
+
+INput1 =[4,[5,[6]],7]
+
+
+A = { e1,e2,e3 } len=3 
+
+A[0]=e1 = 4 , val=4,len= 0
+A[1]=e2=[5,[6]] , len =2  
+  
+A[2]=e3=7 len=0
+  
+UNpu 2 = []  
+
+[1,2,3,4]
+A=[1,[2,[5],[8]]]
+
+// []
+// [1,2,3,4] , len 4,depth =1
+// [1,[2,[5],[8]]]
+
+
+                            
+int func(basicEleemnt *A,int len,int depth){
+  
+  // if(len==0) return 0;
+  
+  // int depth=1;
+  int sum=0;
+  for(int i=0;i<len;i++){
+    if(A[i].len>0){
+      sum+=func(A[i],A[i].len,depth+1)*depth; 
+    }
+    else{
+      sum+=val*depth; 
+    }
+    
+    
+    
+  }
+  
+  return sum;
+  
+}
+
+
+
+
+
+Question 2 :  Given a class as below
+  */////////////////////////////////////////////
+
+class ABC {
+  public:
+  void doNothing() {
+    std::cout << "Doing nothing";
+  }
+};
+
+// 1.
+
+ABC *ptr=new ABC();
+ptr->doNothing(); 
+
+ABC* obj = new ABC();
+
+// will the below code work fine???? if not why? if yes why?
+
+ABC *ptr = nullptr;
+ptr->doNothing(); // ABC::doNothing(ABC* this = ptr, int a); (normally this is how compiler uses to send this pointer inside a method)
+
+// 2
+void myFunc(ABC* ptr) {
+  ptr->doNothing();
+}
+
+
+**** hint: this will work because until unless there is a dereferencing of a pointer (ptr) inside the method of that ABC class
+           there wont be any problem.
+
+
+class ABC {
+  public:
+  void doNothing() {
+    std::cout << "Doing nothing";
+    this->.... ///this would have created the problem. If this line was absent this method would comile and work fine. 
+  }
+};
+
+
+
+

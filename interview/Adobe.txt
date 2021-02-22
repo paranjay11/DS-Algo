@@ -1,0 +1,116 @@
+
+/*
+
+				   1
+			  /		   \
+		  4				    8
+	  /   \			  /   \
+	 2		  7		  3		 9 
+  /  \		\
+ 5	  8		 10
+
+*/		
+
+struct node{  
+	int val;
+  node* left,*right;
+};
+
+unordered_map<node*,node> m;
+
+void mapParent(node *root){
+  if(root==NULL) return ;
+	node *temp=root;
+  m[temp->left]=temp;
+  m[temp->right]=temp;
+  mapParent(temp->left);
+  mapParent(temp->right);
+}
+
+
+void printKNode(node* root, node* target, unisgned int k) {
+  
+	queue<node*> q;
+  m[root]=NULL;
+  
+  mapParent(root);
+  q.push(target);  //q=4 ,k=2
+  int dist=0,len;  
+  while(!q.empty()){
+  	if(dist==k){ //1, k=2
+    	len=q.size();
+      for(int i=0;i<len;i++){
+      	cout<<q.front()<<endl;
+        q.pop();
+      }
+    }
+    
+    len=q.size(); //1   //len 
+    for(int i=0;i<len;i++){
+    	node *temp=q.front();
+      q.pop();
+      q.push(temp->left);
+      q.push(temp->right);
+      q.push(m[temp]);
+    }
+    
+    dist++; /1
+  }
+	
+}
+
+ 
+
+//copy condtructor
+// copy assignment
+// destructor
+
+
+
+class Shared_ptr{
+	public:
+  	int *val;
+  	int *count
+
+  Shared_ptr& operator=(const Shared_ptr &obj){
+ 				Shsared_ptr *nu=new Shared_ptr();
+        
+    }
+  
+  Shared_ptr(const Shared_ptr &obj){
+  	val=obj.val;
+    count=obj.count;
+    *count++;
+  }
+  
+  ~Shared_ptr(){
+  	count--;
+    if(count==0){	
+    		delete val;
+        delete count;
+    }
+  }
+  
+  Shared_ptr(){
+  	val=NULL;
+    count=new int();
+    *count=1;
+  }
+  
+  Shared_ptr(int *ptr){
+  	val=ptr;
+    count=new int();
+    *count++;
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
