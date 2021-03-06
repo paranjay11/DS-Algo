@@ -1,0 +1,65 @@
+// music playlist whith below features
+
+1 . shuffle playlist
+2 . no repeated songs // with each push of the button shuffle() , i should neve hear a repeated song after every shuffle 
+3 . random songs
+
+
+unordered_set<int> visited;
+int songsArray[100];
+
+int Myrandom(){
+	int i=random();
+	while()
+}
+
+
+
+void shuffle(){
+	
+	
+
+	
+	int i=0;
+
+	while(visited.find(arr[i])!=visited.end()){
+		i=Myrandom();
+		//i++;
+	}
+
+	
+		visited.insert(arr[i]);
+		play arr[i]
+		wait for complete song
+
+
+}
+
+
+
+
+int play(){
+	for(int i=0;i<len;i++){
+		if(visited.find(id)!=visited.end()){
+			/
+			if(complete song playes){
+				visited.insert(id);
+			}
+		}
+		
+	}
+
+
+}
+
+
+int main(){
+	
+	shuffle()
+	play()
+}
+
+
+
+
+

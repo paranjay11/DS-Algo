@@ -1,0 +1,82 @@
+// int the given array as below , the values represnt the stocks.
+// we have to print the number of days between buying and sellign of stocks
+differnce in the indexex
+54-53 = 1
+55-54 = 1
+56-55 = 4 
+52-51 =2
+52-49 = 1
+
+
+int main(){
+	int arr[]={53, 54, 55, 51, 49,52,56,53};
+	int *res;
+	int len=sizeof(arr)/sizeof(arr[0]);
+
+	for(int i=0;i<len;i++){
+		int daysCount=1;
+		int j;
+
+		for(j=i+1;j<len && arr[j]<arr[i];j++){	
+			daysCount++;
+		}
+
+		res[i]=daysCount;
+		if(j==len && daysCount>=1){
+			res[i]=0;
+		}
+
+		cout<<res[i]<<" ";
+	}
+	return 0;
+}
+
+
+
+
+i   j
+53, 54, 55, 51, 49,52,56,53
+
+
+
+2 ,3 ,5
+5,5 - 10
+
+10+5 - 15
+
+2,3,5
+3,5 -8
+
+2,8 -10
+
+18
+
+
+min
+
+int fun(int arr,int len){
+	if(len==0){
+		return 0;
+	}
+
+	int val=min(fun(arr,len-1)+arr[len-1]),fun(arr,len));
+
+}
+
+2 3 - 5
+2 5 - 7
+
+
+2,3 
+2
+
+
+
+int main(){
+	int arr[]={2,3,5};
+	int sum=0;
+
+
+}
+
+

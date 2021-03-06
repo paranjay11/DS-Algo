@@ -1,0 +1,79 @@
+
+
+//write a code to check in a matrix if a given string exists or not
+// we can move up, down, left , right
+
+struct Node{
+	int x,y;
+};
+
+
+int X[]={-1,0,1,0};
+int Y[]={0,-1,0,1};
+
+unordered_set<Node> s;
+
+bool find(int **arr,int n,int m,string key){
+	int len=ket.length();
+
+	queue<Node> q;
+	bool found=true;
+	for(int i=0;i<n;i++){
+		for(int j=0;j<m;j++){
+			int keyElement=0;
+			if(key[keyElement]==arr[i][j]){   
+
+				Node temp;
+				temp.x=i;
+				temp.y=j;
+				q.push(temp);
+
+				s.insert(temp);
+
+				while(!q.empty()){
+					Node m=q.top();
+					q.pop();
+
+					keyElement++; // elemtn inside the string AADOBE
+					//if(s.find()==s.end()){
+						int x=m.x;
+						int y=m.y;
+
+						for(int ii=0;ii<4;ii++){
+							int xx=x+X[ii];
+							int yy=y+Y[ii];
+							Node temp2;
+							temp2.x=xx;
+							temp2.y=yy;
+							if(xx <n && xx>=0 && yy<m && yy>=0 ){
+								if(key[keyElement]==arr[xx][yy] && s.find(temp2)==s.end() ){
+									if(key[keyElement]==arr[xx][yy] && keyElement==len-1){
+										return true;
+									}
+									q.push(temp2);
+									s.insert(temp2);
+								}
+							}
+							
+						}
+					//}
+				}
+			}
+
+			unordered_set<NOde >::iterator *it=s.begin();
+			for(;it!=s.end();it++){
+				s.erase(*it);
+			}
+		}
+	}
+
+
+	return false;
+}
+
+
+int main()
+
+
+
+// how to create a a staack with minimum value at every push and pop in O(1) and store it in O(1) too.

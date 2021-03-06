@@ -1,0 +1,95 @@
+// print binary tree in zigzag manner
+
+void printTree(Node *node){
+	
+	int level=0;
+	queue<Node*> q;
+	stack<Node*> s;
+
+	while(!q.empty())}
+	{
+		
+
+		if(level%2!=0){
+			for(int i=0;i<q.size();i++)}
+			{
+				s.push(q.front());
+				q.pop();
+			}
+
+			while(!s.empty()){
+				cout<<s.top()->val;
+				q.push_back(s.top());
+				s.pop();
+			}
+		}
+
+		int len=q.size();
+		for(int i=0;i<len;i++){
+			Node *temp=q.front();
+			q.pop();
+
+			
+			cout<<temp->val;
+
+			q.push()
+
+		}
+
+
+	}  
+}
+
+
+// print only the left side of the tree
+
+map<int,int> m;
+unordere_set<>
+
+void printTree(Node *node,int level){
+	
+	if(node){
+
+		if(m.find(level)==m.end()){
+			cout<<node->va;
+			m[level]=;
+		}
+		printTree(node->left,level+1);
+		printTree(node->rigt,level+1);
+
+	}
+}
+
+
+
+
+
+class student{
+	private:
+	int len;
+	T& operator new (Student)
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+23
+4567
+
+for 0th l queue=1
+ queue=2,3
+ level=1;
+
+

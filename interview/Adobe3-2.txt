@@ -1,0 +1,179 @@
+
+
+paranjay Atul 
+// An array of numbers is given tell the range sum of numbers between the range (j,i)
+// when no updates of numbers is there.(so no need of thinking about segment tree)
+
+
+      1 4,8,13,
+a = {1,3,4,5,6,7,7}   : 
+
+Sum(i,j)  = a[i] + a[i+1] + ......+ a[j] 
+
+Sum(2,3) = 7 = arr[]-arr[2-1]
+Sum(1,5) = 13 arr[4] -arr[]
+
+// Lets say there wil lbe sum querry ,no modification 
+
+YOu wil be given the array first. 
+
+You wil be asked querry of GiveSum(i,j) ---> Too many times 
+	Segment Tree, O(logn)
+  
+  
+  
+  //int *sum;
+mutex m1;
+
+
+int *fun(int *arr,int len ){
+
+  int *sum=new int[len];
+  	sum[0]=arr[0];
+  	for(int i =1;i<len;i++){
+  			sum[i]+=arr[i]+sum[i-1];	
+  	}
+  
+
+  return sum;
+  }
+    // 1 4 8 13 
+
+    int val(int i,int j ,int *sum,int len){
+    	
+           if(i==0) return sum[j];
+           return sum[j]-sum[i-1];
+    
+    }
+    
+    int main(){
+    
+    	int arr[]={1,3,4,5,6,7,8};
+      int *k=fun(arr,7);
+      cout<<val(1,3,k,7);
+      
+      
+      delete k[];
+    	return 0;
+    }
+
+Problems:
+1. Memory Leak
+2. Overflow
+3. Thread-Saftey ? It is thread-safe, What about sum ? Global . Are globals thread-safe ? 
+  
+  
+///////////////////////////////////////////////////////////////////////
+struct A {
+
+};
+
+struct B : public A {
+
+};
+////////////////////////////////////////////////////////////////////////
+
+
+#include <string.h>
+#include <stdio.h>
+
+int lenSIze(char *arr){
+  int i=0;
+   while(str[i]!='\0'){
+   	i++;
+   }
+  return i;
+
+}
+
+char * strtok(char * str, char * del) {
+		//queue<string> s;
+  static char *str_k=str;
+  if(str==NULL){
+  	if(str_k!=NULL){
+    	int len=lenSize(str_k);
+      while(str_k[i]!=)
+    }
+  
+  }
+
+  
+  
+  
+  
+  
+  
+  
+  string sk;
+  int len;
+
+  for(int i=0;i<i;i++){
+  	if(str[i]==' '){
+    	s.push(sk);
+      sk='';
+      i++;
+    }
+    
+    if(i<len) sk+=str[i];
+  }
+	
+}
+
+int main () {
+   char str[80] = "This is www.tutorialspoint.com website";
+   const char s[2] = " ";
+   char *token;
+   
+   /* get the first token */
+   token = strtok(str, s);    // This
+   
+   /* walk through other tokens */
+   while( token != NULL ) {
+      printf( " %s\n", token );   // This, is, www./,, , website
+    
+      token = strtok(NULL, s);
+   }
+   
+   return(0);
+}
+
+
+
+//////////////////////////////////////////
+
+class A {
+  public:
+	A() {
+    std::cout << "A 's Constructor";
+  }
+  ~A(){
+  	std::cout << "A's Destructor";
+  }
+	
+};
+
+class B : public A {
+public:
+  B()  {
+  	std::cout << "B's Constructor";
+  }
+  ~B(){
+  	std::cout << "B's Destructor";
+  }
+};
+
+int main() {
+  
+  			//A construcoter
+	B b; // Bs constriucte
+       // B destrutore
+       // A destructo  
+}
+
+
+  
+  
+
+
+
+
