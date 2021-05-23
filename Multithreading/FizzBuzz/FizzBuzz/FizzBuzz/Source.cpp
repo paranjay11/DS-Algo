@@ -33,7 +33,8 @@ public:
 #endif
 	}
 	// at a time only one thread will be in running state  while other threads will be in waiting queue
-	// This is because each thread will check its function's wait predicate condition before anything and on getting false it will wait or else run ahead
+	// This is because each thread will check its function's wait predicate 
+	// condition before anything and on getting false it will wait or else run ahead
 
 
 	void fizz() {
@@ -43,29 +44,48 @@ public:
 			cout << "fizz thread start :  >> " <<++fizzCount<< endl;
 #endif		
 			// condition variable requires the predicate's value to decide the state of the thread.
-			// if the predicate is false (in this case it is an anynomous function(lambda function)) , the thread will go into waiting state after the mutex that it owened is unlocked.
+			// if the predicate is false (in this case it is an anynomous function(lambda function)) , 
+			// the thread will go into waiting state after the mutex that it owened is unlocked.
 			// id the predicate is true , then the thread is allowed to run ahead.
 			condVar.wait(locker, [&] {
-				if (!flag) return true; // this has to be there which stops the condition variable wait for the current thread when 'cnt' becomes greater than 'n'
-										// Earlier I did nto include this in the code , then the wait for the thread used to get triggered and it used to stay like this because 
-										// the condition waited for (in this case) 'cnt' as a multiple of only 3, even when the 'cnt' had exceeded 'n'. 
-										// Since the last function has already been implemented and all the other funtions are waiting till they find their required 'cnt'.
-										// deadlock occurs! So in whichever function the last thread implemented , we make sure flag=false , so that we stop the threads from waiting 
-										// for a dreamy 'cnt'. And when they go ahead in the function , they encounter the break in " if (cnt > n) break; "
+				if (!flag) return true; 
+				/* 
+				 This has to be there which stops the condition variable wait for the current
+				 thread when 'cnt' becomes greater than 'n' Earlier I did nto include this in 
+				 the code , then the wait for the thread used to get triggered and it used to 
+				 stay like this because the condition waited for (in this case) 'cnt' as a 
+				 multiple of only 3, even when the 'cnt' had exceeded 'n'. Since the last 
+				 function has already been implemented and all the other funtions are waiting 
+				 till they find their required 'cnt'. deadlock occurs! So in whichever 
+				 function the last thread implemented , we make sure flag=false , so that 
+				 we stop the threads from waiting for a dreamy 'cnt'. And when they go ahead 
+				 in the function , they encounter the break in " if (cnt > n) break; "
+				 */
 				return (cnt % 3 == 0 && cnt % 5 != 0) ? true : false;
 				});
-			if (cnt > n) break;
+			if (cnt > n) {
+				// since we are finished with the numbers , when we break the while loop
+				// we need to unlock the locker and notify all the waiting threads.
+				locker.unlock();
+				condVar.notify_all();
+				break;
+			}
 			cout << "fizz , " << endl;
 			cnt++;
 #if DEBUG
 			cout << "fizz thread end :  >> " << fizzCount << " with cnt as : "<< cnt <<endl;
 #endif
-			if (cnt > n) flag = false; // this is where we wait for the 'cnt' to exceed the n , this happens only when this function receives the cnt=n
-									   // or else it simply unlocks the mutex and notifies the waiting threads
+			if (cnt > n) flag = false; // this is where we wait for the 'cnt' to exceed the n , 
+									   //this happens only when this function receives the cnt=n
+									   // or else it simply unlocks the mutex and notifies the 
+			                           // waiting threads
 
-			locker.unlock();		// the order has to be unlock the mutex first and then notify all. This is because if we notify others and the mutex hasnt been released 
-									// the threads wont be able to proceed because when coming out of wiaiting state they will again acquire the mutex which was revoked from them 
-									// when they were being pushed into the waiting state 
+			locker.unlock();		// the order has to be unlock the mutex first and then notify all. 
+									// This is because if we notify others and the mutex hasnt been 
+			                        // released the threads wont be able to proceed because when 
+			                        // coming out of wiaiting state they will again acquire the mutex 
+			                        // which was revoked from them when they were being pushed into the 
+									// waiting state 
 			condVar.notify_all();
 		}
 	}
@@ -80,7 +100,11 @@ public:
 				if (!flag) return true;
 				return (cnt % 5 == 0 && cnt % 3 != 0) ? true : false;
 				});
-			if (cnt > n) break;
+			if (cnt > n) {
+				locker.unlock();
+				condVar.notify_all();
+				break;
+			}
 			cout << "buzz , "<<endl;
 			cnt++;
 #if DEBUG
@@ -102,7 +126,11 @@ public:
 				if (!flag) return true;
 				return (cnt % 15 == 0) ? true : false;
 				});
-			if (cnt > n) break;
+			if (cnt > n) {
+				locker.unlock();
+				condVar.notify_all();
+				break;
+			}
 			cout << "fizzbuzz , "<<endl;
 			cnt++;
 #if DEBUG
@@ -124,7 +152,11 @@ public:
 				if (!flag) return true;
 				return (cnt % 3 != 0 && cnt % 5 != 0 && cnt % 15 != 0) ? true : false;
 				});
-			if (cnt > n) break;
+			if (cnt > n) {
+				locker.unlock();
+				condVar.notify_all();
+				break;
+			}
 			cout << cnt << " , "<<endl;
 			cnt++;
 #if DEBUG
