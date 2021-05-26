@@ -76,16 +76,16 @@ public:
 			cout << "fizz thread end :  >> " << fizzCount << " with cnt as : "<< cnt <<endl;
 #endif
 			if (cnt > n) flag = false; // this is where we wait for the 'cnt' to exceed the n , 
-						   // this happens only when this function receives the cnt=n
-						   // or else it simply unlocks the mutex and notifies the 
+									   //this happens only when this function receives the cnt=n
+									   // or else it simply unlocks the mutex and notifies the 
 			                           // waiting threads
 
-			locker.unlock();	   // the order has to be unlock the mutex first and then notify all. 
-						   // This is because if we notify others and the mutex hasnt been 
-			                           // released the threads wont be able to proceed because when 
-			                           // coming out of wiaiting state they will again acquire the mutex 
-			                           // which was revoked from them when they were being pushed into the 
-						   // waiting state 
+			locker.unlock();		// the order has to be unlock the mutex first and then notify all. 
+									// This is because if we notify others and the mutex hasnt been 
+			                        // released the threads wont be able to proceed because when 
+			                        // coming out of wiaiting state they will again acquire the mutex 
+			                        // which was revoked from them when they were being pushed into the 
+									// waiting state 
 			condVar.notify_all();
 		}
 	}
