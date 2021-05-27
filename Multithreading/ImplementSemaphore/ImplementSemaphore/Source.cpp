@@ -1,3 +1,38 @@
+/*
+Semaphores solve the critical section problem by using two atomic 
+operations, wait() and signal().
+
+wait operation: if the value of the semaphore s is negative or zero, 
+				operation is performed. If the value of s is positive, 
+				it is decremented. The pseudocode for wait operation 
+				is as follows:
+
+				wait(s)
+				{
+					while(s<=0);
+					s--;
+				}
+
+signal operation: This operation is used to increase the value of 
+				  the semaphore s. The pseudocode for signal operation 
+				  is as follows:
+
+				  signal(s)
+				  {
+					s++
+				  }
+
+ **** Since the wait(s) and signal() are atomic operations because
+      it deals with a shared data 's' . Hence the inside implementation 
+	  of these functions need to be atomic too. The atomic behavious is
+	  implemented using mutx and conditionvariable.
+
+	  acquire() // -> similar to wait()
+	  //critical section
+	  release() // -> similar to release
+*/
+
+
 #include<iostream>
 #include<thread>
 #include<mutex>
@@ -26,20 +61,46 @@ public:
 		countOfPermits++;
 		cout << "------------remaining :" << MAX_PERMITS - countOfPermits << endl;
 		cout << endl;
+		// Unlock call is not required , it will get release when it exits the 
+		// acquire function's scope. But I let it be there anyways.....
 		locker.unlock();
-		condVar.notify_all();
+
+		// We dont need to call notify over here is because we dont need to notify 
+		// any thread which is waiting (in waiting queue of condVar) for not getting
+		// to release the semaphore (according to previous commented out implementation
+		// in release function ).
+		// For the threads that are waiting in the waiting queue of condVar because of
+		// unavaiabillity of permits ( in the acquire function ) , they are being signalled
+		// by release function's notify call and not from acquire function notify call.
+
+		//condVar.notify_all();
 	}
 
 	void release(string str) {
 		unique_lock<mutex> locker(mu);
-		condVar.wait(locker, [=] {
+
+		// We dont need this because making a thread wait on a condition that
+		// there are no permits given yet , is not logically correct
+		// and even if any thread calls a release before actually acquiring it
+		// we need to check if the countOfPermits is less than 0 or not
+		// if it is then simply discard this and reset the value of countOfPermits
+		// to zero.
+
+		/*condVar.wait(locker, [=] {
 			return countOfPermits == 0 ? false : true;
-			});
+			});*/
 		//this_thread::sleep_for(std::chrono::seconds(2));
-		cout << str << " running, permit released " << endl;
 		countOfPermits--;
-		cout<<"------------remaining :" << MAX_PERMITS - countOfPermits << endl;
-		cout << endl;
+		if (countOfPermits < 0) {
+			countOfPermits = 0;
+		}
+		else {
+			cout << str << " running, permit released " << endl;
+
+			cout << "------------remaining :" << MAX_PERMITS - countOfPermits << endl;
+			cout << endl;
+		}
+		
 		locker.unlock();
 		condVar.notify_all();
 	}
