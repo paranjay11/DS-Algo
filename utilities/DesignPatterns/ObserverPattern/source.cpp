@@ -63,7 +63,7 @@ public:
 		this->ws=ob;
 	}
 	void update(){
-		cout<<this->ws->getTemprature()<<endl;
+		cout<<"TV Display : "<<ws->getTemprature()<<endl;
 	}
 
 };
@@ -77,7 +77,7 @@ public:
 		ws=ob;
 	}
 	void update(){
-		cout<<ws->getTemprature()<<endl;
+		cout<<"Mobile Display : "<<ws->getTemprature()<<endl;
 	}
 
 };
