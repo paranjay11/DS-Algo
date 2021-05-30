@@ -1,0 +1,15 @@
+https://github.com/AtanasRusevPros/CPP11_ThreadPool/blob/master/thread_pool.cpp
+
+Move semantics:
+https://www.internalpointers.com/post/c-rvalue-references-and-move-semantics-beginners#:~:text=C%2B%2B0x%20has%20introduced,in%20the%20second%20line%20above!
+
+Lambda Functions:
+https://www.geeksforgeeks.org/lambda-expression-in-c/
+https://www.nextptr.com/question/qa1204217321/creating-a-vector-or-array-of-lambda-functions
+
+other links:
+https://docs.microsoft.com/en-us/cpp/standard-library/result-of-class?view=msvc-160
+https://en.cppreference.com/w/cpp/types/result_of
+https://www.cplusplus.com/reference/memory/make_shared/
+https://en.cppreference.com/w/cpp/thread/packaged_task
+https://stackoverflow.com/questions/11470802/stdresult-of-simple-function
